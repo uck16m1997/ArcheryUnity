@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028417, g: 0.22571516, b: 0.30692273, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802844, g: 0.2257154, b: 0.3069233, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 958864456}
   - component: {fileID: 958864455}
   - component: {fileID: 958864457}
+  - component: {fileID: 958864459}
   - component: {fileID: 958864458}
   m_Layer: 0
   m_Name: GameManager
@@ -609,8 +610,6 @@ MonoBehaviour:
   scoreText: {fileID: 1093925033}
   timerText: {fileID: 111255023}
   gameStateUI: {fileID: 1900395191}
-  gameStartClip: {fileID: 8300000, guid: 20c372b43f56e2b48adb5c7757ed1f59, type: 3}
-  gameEndClip: {fileID: 8300000, guid: acd78459da513c24f823af866ef913ed, type: 3}
 --- !u!4 &958864456
 Transform:
   m_ObjectHideFlags: 0
@@ -733,6 +732,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &958864459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958864454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1414f31b6183e043bc6b5a0f507be24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStartClip: {fileID: 8300000, guid: 20c372b43f56e2b48adb5c7757ed1f59, type: 3}
+  gameEndClip: {fileID: 8300000, guid: acd78459da513c24f823af866ef913ed, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,8 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535fa5415fcc5754db928b88d5a1da57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
-  rotationRange: {x: 40, y: 75}
+  moveSpeed: 0.5
+  moveRange: {x: 40, y: 75}
 --- !u!114 &1230778245
 MonoBehaviour:
   m_ObjectHideFlags: 0

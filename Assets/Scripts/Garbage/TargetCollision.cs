@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class TargetCollision : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private TargetMovement targetMovement;
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject impactParticles;
-    
+
     private AudioSource impactSound;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +22,17 @@ public class TargetCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // If collision happened with an Arrow object
         if (collision.gameObject.CompareTag("Arrow"))
         {
+            // Audio 
             impactSound.volume = collision.relativeVelocity.normalized.magnitude;
             impactSound.Play();
+
+            // Hit Particles
             Instantiate(impactParticles, transform.position, impactParticles.transform.rotation);
+
+            // 
             GameManager.score++;
             targetMovement.enabled = false;
             collision.transform.parent = transform;

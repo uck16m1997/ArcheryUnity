@@ -40,10 +40,14 @@
      <Compile Include="Assets\Scripts\HideCursor.cs" />
      <Compile Include="Assets\Scripts\ShootArrows.cs" />
      <Compile Include="Assets\Scripts\CloneDestruction.cs" />
-     <Compile Include="Assets\Scripts\TargetMovement.cs" />
-     <Compile Include="Assets\Scripts\TargetCollision.cs" />
+     <Compile Include="Assets\Scripts\Garbage\TargetMovement.cs" />
+     <Compile Include="Assets\Scripts\Garbage\TargetCollision.cs" />
      <Compile Include="Assets\Scripts\BowController.cs" />
      <Compile Include="Assets\Scripts\TargetSpawner.cs" />
+     <Compile Include="Assets\Scripts\AudioManagers\GameAudioManager.cs" />
+     <Compile Include="Assets\Scripts\TargetBehaviour.cs" />
+     <Compile Include="Assets\Scripts\AudioManagers\TargetAudioManager.cs" />
+     <Compile Include="Assets\Scripts\AudioManagers\BaseAudioManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

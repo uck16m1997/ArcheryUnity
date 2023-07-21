@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private float gameLengthInSeconds = 10f;
 
     [SerializeField]
@@ -17,21 +17,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameStateUI;
 
-    [SerializeField]
-    private AudioClip gameStartClip;
-    
-    [SerializeField]
-    private AudioClip gameEndClip;
-
-    private AudioSource gameStateSound;
-
     private float timer;
     private Text gameStateText;
     private Animator gameStateTextAnim;
-    
+
     public static bool gameStarted = false;
     public static int score;
-    
+    public event System.Action GameStateChanged;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +34,9 @@ public class GameManager : MonoBehaviour
         gameStateTextAnim = gameStateUI.GetComponent<Animator>();
         gameStateTextAnim.SetBool("ShowText", true);
 
-        gameStateSound = GetComponent<AudioSource>();
 
         timer = gameLengthInSeconds;
-        
+
         UpdateScoreBoard();
     }
 
@@ -62,7 +54,7 @@ public class GameManager : MonoBehaviour
             UpdateScoreBoard();
         }
 
-        if (gameStarted && timer<=0 )
+        if (gameStarted && timer <= 0)
         {
             EndGame();
         }
@@ -78,25 +70,24 @@ public class GameManager : MonoBehaviour
         score = 0;
         gameStarted = true;
         gameStateTextAnim.SetBool("ShowText", false);
-
-        gameStateSound.clip = gameStartClip;
-        gameStateSound.Play();
+        // Notify the subscribers about game state change
+        GameStateChanged?.Invoke();
     }
-    
+
     private void UpdateScoreBoard()
     {
-        scoreText.text =  "Targets:" + score;
-        timerText.text =  "Timer:" + Mathf.RoundToInt(timer);
+        scoreText.text = "Targets:" + score;
+        timerText.text = "Timer:" + Mathf.RoundToInt(timer);
     }
-    
+
     private void EndGame()
     {
         gameStateText.text = "Game Over!\nPress Space to restart";
         gameStateTextAnim.SetBool("ShowText", true);
+        // Reset the game variables
         gameStarted = false;
         timer = gameLengthInSeconds;
-        
-        gameStateSound.clip = gameEndClip;
-        gameStateSound.Play();
+        // Notify the subscribers about game state change
+        GameStateChanged?.Invoke();
     }
 }

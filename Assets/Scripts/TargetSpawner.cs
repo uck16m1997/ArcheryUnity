@@ -15,12 +15,8 @@ public class TargetSpawner : MonoBehaviour
 
     [SerializeField]
     private GameObject targetPrefab;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -38,13 +34,13 @@ public class TargetSpawner : MonoBehaviour
 
     void SpawnTargets()
     {
-        
+
         if (totalTargets == 0 && GameManager.gameStarted)
         {
             float xMin = transform.position.x - spawnArea.x / 2;
             float yMin = transform.position.y - spawnArea.y / 2;
             float zMin = transform.position.z - spawnArea.z / 2;
-        
+
             float xMax = transform.position.x + spawnArea.x / 2;
             float yMax = transform.position.y + spawnArea.y / 2;
             float zMax = transform.position.z + spawnArea.z / 2;
@@ -67,13 +63,8 @@ public class TargetSpawner : MonoBehaviour
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
         for (int i = 0; i < targets.Length; i++)
         {
-            TargetMovement targetMovement = targets[i].GetComponent<TargetMovement>();
-            Rigidbody targetRigidBody = targets[i].GetComponent<Rigidbody>();
-            Collider targetCollider = targets[i].GetComponent<Collider>();
-            targetMovement.enabled = false;
-            targetRigidBody.isKinematic = false;
-            targetCollider.enabled = false;
-            Destroy(targets[i], 1f);
+            TargetBehaviour targetBehaviour = targets[i].GetComponent<TargetBehaviour>();
+            targetBehaviour.CleanUp();
         }
     }
 
