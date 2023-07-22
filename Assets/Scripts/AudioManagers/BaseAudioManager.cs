@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class BaseAudioManager : MonoBehaviour
 {
-    protected AudioSource audioSource;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     protected void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -19,12 +19,16 @@ public abstract class BaseAudioManager : MonoBehaviour
 
     protected void PlayAudioSource()
     {
-        audioSource.Play();
+        _audioSource.Play();
+    }
+    protected void StopAudioSource()
+    {
+        _audioSource.Stop();
     }
 
     protected void PlayClip(AudioClip clip)
     {
-        audioSource.clip = clip;
-        audioSource.Play();
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 }

@@ -5,15 +5,15 @@ using UnityEngine;
 public class TargetAudioManager : BaseAudioManager
 {
 
-    private TargetBehaviour targetBehaviour;
+    private TargetBehaviour _targetBehaviour;
 
     new void Start()
     {
         // Get the audioSource using Base
         base.Start();
         // Get the target behaviour and Subscribe
-        targetBehaviour = GetComponent<TargetBehaviour>();
-        targetBehaviour.GotHit += OnEventHappened;
+        _targetBehaviour = GetComponent<TargetBehaviour>();
+        _targetBehaviour.GotHit += OnEventHappened;
     }
 
     protected override void OnEventHappened()

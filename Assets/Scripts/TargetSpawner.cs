@@ -6,27 +6,27 @@ using UnityEngine;
 public class TargetSpawner : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 spawnArea = new Vector3(3, 3, 3);
+    private Vector3 _spawnArea = new Vector3(3, 3, 3);
 
     [SerializeField]
-    private int targetsToSpawn = 3;
+    private int _targetsToSpawn = 3;
 
-    public static int totalTargets;
+    public static int TotalTargets;
 
     [SerializeField]
-    private GameObject targetPrefab;
+    private GameObject _targetPrefab;
 
 
 
     // Update is called once per frame
     void Update()
     {
-        if (totalTargets == 0 && GameManager.gameStarted)
+        if (TotalTargets == 0 && GameManager.GameStarted)
         {
             SpawnTargets();
         }
 
-        if (!GameManager.gameStarted && totalTargets > 0)
+        if (!GameManager.GameStarted && TotalTargets > 0)
         {
             DestroyTragets();
         }
@@ -35,31 +35,31 @@ public class TargetSpawner : MonoBehaviour
     void SpawnTargets()
     {
 
-        if (totalTargets == 0 && GameManager.gameStarted)
+        if (TotalTargets == 0 && GameManager.GameStarted)
         {
-            float xMin = transform.position.x - spawnArea.x / 2;
-            float yMin = transform.position.y - spawnArea.y / 2;
-            float zMin = transform.position.z - spawnArea.z / 2;
+            float xMin = transform.position.x - _spawnArea.x / 2;
+            float yMin = transform.position.y - _spawnArea.y / 2;
+            float zMin = transform.position.z - _spawnArea.z / 2;
 
-            float xMax = transform.position.x + spawnArea.x / 2;
-            float yMax = transform.position.y + spawnArea.y / 2;
-            float zMax = transform.position.z + spawnArea.z / 2;
+            float xMax = transform.position.x + _spawnArea.x / 2;
+            float yMax = transform.position.y + _spawnArea.y / 2;
+            float zMax = transform.position.z + _spawnArea.z / 2;
 
-            for (int i = 0; i < targetsToSpawn; i++)
+            for (int i = 0; i < _targetsToSpawn; i++)
             {
                 float xRandom = UnityEngine.Random.Range(xMin, xMax);
                 float yRandom = UnityEngine.Random.Range(yMin, yMax);
                 float zRandom = UnityEngine.Random.Range(zMin, zMax);
 
-                Instantiate(targetPrefab, new Vector3(xRandom, yRandom, zRandom), targetPrefab.transform.rotation);
-                totalTargets++;
+                Instantiate(_targetPrefab, new Vector3(xRandom, yRandom, zRandom), _targetPrefab.transform.rotation);
+                TotalTargets++;
             }
         }
     }
 
     void DestroyTragets()
     {
-        totalTargets = 0;
+        TotalTargets = 0;
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
         for (int i = 0; i < targets.Length; i++)
         {
@@ -71,6 +71,6 @@ public class TargetSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, spawnArea);
+        Gizmos.DrawWireCube(transform.position, _spawnArea);
     }
 }

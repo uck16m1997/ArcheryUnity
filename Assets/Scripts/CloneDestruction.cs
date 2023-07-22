@@ -5,11 +5,11 @@ using UnityEngine;
 public class CloneDestruction : MonoBehaviour
 {
     [SerializeField]
-    private float duration = 5f;
-    
+    private float _duration = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject,duration);
+        Destroy(gameObject, _duration);
     }
 }
