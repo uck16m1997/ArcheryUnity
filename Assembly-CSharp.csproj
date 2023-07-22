@@ -38,7 +38,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HideCursor.cs" />
-     <Compile Include="Assets\Scripts\BowScripts\Garbage\ShootArrows.cs" />
      <Compile Include="Assets\Scripts\AudioManagers\TargetAudioManager.cs" />
      <Compile Include="Assets\Scripts\BowScripts\BowShootingState.cs" />
      <Compile Include="Assets\Scripts\CloneDestruction.cs" />
