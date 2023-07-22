@@ -7,14 +7,14 @@ using UnityEngine;
 public class ArrowProduct : MonoBehaviour, IProduct
 {
     [SerializeField]
-    private string _productName = "Arrow";
+    private string productName = "Arrow";
     [SerializeField]
-    private float _duration = 5f;
-    public string ProductName { get => _productName; set => _productName = value; }
+    private float duration = 5f;
+    public string ProductName { get => productName; set => productName = value; }
 
     public void Initialize()
     {
-        gameObject.name = _productName;
-        Destroy(gameObject, _duration);
+        gameObject.name = productName;
+        Destroy(gameObject, duration);
     }
 }

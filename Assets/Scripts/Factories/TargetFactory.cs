@@ -5,11 +5,11 @@ using UnityEngine;
 public class TargetFactory : BaseFactory
 {
     [SerializeField]
-    private TargetProduct _targetPrefab;
+    private TargetProduct targetPrefab;
 
     public TargetProduct TargetPrefab
     {
-        get => _targetPrefab;
+        get => targetPrefab;
     }
 
     public static TargetFactory Instance;
@@ -28,7 +28,7 @@ public class TargetFactory : BaseFactory
 
     public override GameObject GetProduct(Vector3 position, Quaternion rotation)
     {
-        GameObject instance = Instantiate(_targetPrefab.gameObject, position, rotation);
+        GameObject instance = Instantiate(targetPrefab.gameObject, position, rotation);
 
         TargetProduct target = instance.GetComponent<TargetProduct>();
         target.Initialize();

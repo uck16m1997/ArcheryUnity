@@ -6,30 +6,30 @@ public class GameAudioManager : BaseAudioManager
 {
 
     [SerializeField]
-    private AudioClip _gameStartClip;
+    private AudioClip gameStartClip;
 
     [SerializeField]
-    private AudioClip _gameEndClip;
-    private GameManager _gameManager;
+    private AudioClip gameEndClip;
+    private GameManager gameManager;
     // Start is called before the first frame update
     new void Start()
     {
         // Get the audioSource using Base
         base.Start();
         // Get the GameManager and Subscribe
-        _gameManager = GetComponent<GameManager>();
-        _gameManager.GameStateChanged += OnEventHappened;
+        gameManager = GetComponent<GameManager>();
+        gameManager.GameStateChanged += OnEventHappened;
     }
 
     protected override void OnEventHappened()
     {
         if (GameManager.GameStarted)
         {
-            PlayClip(_gameStartClip);
+            PlayClip(gameStartClip);
         }
         else
         {
-            PlayClip(_gameEndClip);
+            PlayClip(gameEndClip);
         }
     }
 

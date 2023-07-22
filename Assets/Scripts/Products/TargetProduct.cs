@@ -5,12 +5,12 @@ using UnityEngine;
 public class TargetProduct : MonoBehaviour, IProduct
 {
     [SerializeField]
-    private string _productName = "Target";
+    private string productName = "Target";
 
-    public string ProductName { get => _productName; set => _productName = value; }
+    public string ProductName { get => productName; set => productName = value; }
 
     public void Initialize()
     {
-        gameObject.name = _productName;
+        gameObject.name = productName;
     }
 }

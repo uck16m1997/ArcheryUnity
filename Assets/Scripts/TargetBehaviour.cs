@@ -7,25 +7,25 @@ public class TargetBehaviour : MonoBehaviour
 
     // How far will the target will be moving
     [SerializeField]
-    private float _amplitude = 1f;
+    private float amplitude = 1f;
 
     // Speed of the movement
     [SerializeField]
-    private float _timePeriod = 1f;
+    private float timePeriod = 1f;
 
     // Probability of this target being mobile
     [SerializeField]
-    private float _probOfMovement = 0.5f;
-    private ParticleSystem _impactParticles;
-    private Vector3 _startPosition;
-    private bool _isMoving = false;
+    private float probOfMovement = 0.5f;
+    private ParticleSystem impactParticles;
+    private Vector3 startPosition;
+    private bool isMoving = false;
     public event System.Action GotHit;
 
     // Start is called before the first frame update
     void Start()
     {
         // Find Particle System 
-        _impactParticles = transform.GetComponentInChildren<ParticleSystem>();
+        impactParticles = transform.GetComponentInChildren<ParticleSystem>();
         // Initialize this target
         Initialize();
     }
@@ -33,8 +33,8 @@ public class TargetBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If game has started and this target _isMoving
-        if (GameManager.GameStarted && _isMoving)
+        // If game has started and this target isMoving
+        if (GameManager.GameStarted && isMoving)
         {
             PeriodicMovement();
         }
@@ -43,15 +43,15 @@ public class TargetBehaviour : MonoBehaviour
     public void Initialize()
     {
         // Will this target be mobile
-        _isMoving = UnityEngine.Random.Range(0f, 1f) >= _probOfMovement;
+        isMoving = UnityEngine.Random.Range(0f, 1f) >= probOfMovement;
         // Starting from transform position
-        _startPosition = transform.localPosition;
+        startPosition = transform.localPosition;
     }
 
     public void CleanUp()
     {
         // Stop movement on hit
-        _isMoving = false;
+        isMoving = false;
         // Stop collisions to not block the player
         GetComponent<Collider>().enabled = false;
         // To enable effects of gravity again
@@ -62,11 +62,11 @@ public class TargetBehaviour : MonoBehaviour
     void PeriodicMovement()
     {
         // Parameter that will be given to sin wave to calculate movement
-        float theta = Time.timeSinceLevelLoad / _timePeriod;
+        float theta = Time.timeSinceLevelLoad / timePeriod;
 
         // Change in position relative to the base position
-        Vector3 deltaPosition = new Vector3(0, 0, Mathf.Sin(theta) * _amplitude);
-        transform.position = _startPosition + deltaPosition;
+        Vector3 deltaPosition = new Vector3(0, 0, Mathf.Sin(theta) * amplitude);
+        transform.position = startPosition + deltaPosition;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,7 +79,7 @@ public class TargetBehaviour : MonoBehaviour
             GotHit?.Invoke();
 
             // Play particle effects 
-            _impactParticles.Play();
+            impactParticles.Play();
 
             // Increase score and decrease targets onHit
             GameManager.Score++;

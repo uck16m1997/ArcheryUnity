@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a906f33651d168741b8dc5f6b1554a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetPrefab: {fileID: 8927966518793736958, guid: 46f130b83002e7242b60ebe72480b0d9, type: 3}
+  targetPrefab: {fileID: 8927966518793736958, guid: 46f130b83002e7242b60ebe72480b0d9, type: 3}
 --- !u!4 &884967876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4786902747101246, guid: e3bf992dca46de144b6c4b0d546838bd, type: 3}
@@ -640,9 +640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb532d69e5ce1e44a34b24501412c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnArea: {x: 3, y: 3, z: 3}
-  _targetsToSpawn: 3
-  _targetPrefab: {fileID: 1628356709344694, guid: 46f130b83002e7242b60ebe72480b0d9, type: 3}
+  spawnArea: {x: 3, y: 3, z: 3}
+  targetsToSpawn: 3
+  targetPrefab: {fileID: 0}
 --- !u!4 &951791042
 Transform:
   m_ObjectHideFlags: 0
@@ -690,9 +690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afc9f697085b914caf3be2d1aadfb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameLengthInSeconds: 20
-  _ScoreText: {fileID: 1093925033}
-  _timerText: {fileID: 111255023}
+  gameLengthInSeconds: 10
+  ScoreText: {fileID: 1093925033}
+  timerText: {fileID: 111255023}
   gameStateUI: {fileID: 1900395191}
 --- !u!4 &958864456
 Transform:
@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1414f31b6183e043bc6b5a0f507be24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameStartClip: {fileID: 8300000, guid: 20c372b43f56e2b48adb5c7757ed1f59, type: 3}
-  _gameEndClip: {fileID: 8300000, guid: acd78459da513c24f823af866ef913ed, type: 3}
+  gameStartClip: {fileID: 8300000, guid: 20c372b43f56e2b48adb5c7757ed1f59, type: 3}
+  gameEndClip: {fileID: 8300000, guid: acd78459da513c24f823af866ef913ed, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,8 +1201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535fa5415fcc5754db928b88d5a1da57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 0.5
-  _moveRange: {x: 50, y: 95}
+  moveSpeed: 0.5
+  moveRange: {x: 50, y: 95}
 --- !u!82 &1230778248
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1323,9 +1323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0af5c7f7c0ea14282b3d0a11efee58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowTransform: {fileID: 229791662}
-  _maximumArrowForce: 50
-  _maxLerpTime: 1
+  arrowTransform: {fileID: 229791662}
+  maximumArrowForce: 50
+  maxLerpTime: 1
 --- !u!1 &1528594904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b36d9929e0ba2149b76bed87754111f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowPrefab: {fileID: -8045738646382501406, guid: 05707f2de84958640b5388ef700477f6, type: 3}
+  arrowPrefab: {fileID: -8045738646382501406, guid: 05707f2de84958640b5388ef700477f6, type: 3}
 --- !u!1 &1544507233
 GameObject:
   m_ObjectHideFlags: 0

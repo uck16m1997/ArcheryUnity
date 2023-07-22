@@ -5,11 +5,11 @@ using UnityEngine;
 public class ArrowFactory : BaseFactory
 {
     [SerializeField]
-    private ArrowProduct _arrowPrefab;
+    private ArrowProduct arrowPrefab;
 
     public ArrowProduct ArrowPrefab
     {
-        get => _arrowPrefab;
+        get => arrowPrefab;
     }
 
     public static ArrowFactory Instance;
@@ -28,7 +28,7 @@ public class ArrowFactory : BaseFactory
 
     public override GameObject GetProduct(Vector3 position, Quaternion rotation)
     {
-        GameObject instance = Instantiate(_arrowPrefab.gameObject, position, rotation);
+        GameObject instance = Instantiate(arrowPrefab.gameObject, position, rotation);
 
         ArrowProduct arrow = instance.GetComponent<ArrowProduct>();
         arrow.Initialize();

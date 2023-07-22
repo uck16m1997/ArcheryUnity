@@ -5,31 +5,31 @@ using UnityEngine;
 public class BowController : MonoBehaviour
 {
     [SerializeField]
-    private Transform _arrowTransform;
+    private Transform arrowTransform;
 
     [SerializeField]
-    private float _maximumArrowForce = 200f;
+    private float maximumArrowForce = 200f;
     [SerializeField]
-    private float _maxLerpTime = 1f;
+    private float maxLerpTime = 1f;
     public Transform ArrowTransform
     {
-        get => _arrowTransform;
+        get => arrowTransform;
     }
 
     public static BowIdleState Idle;
     public static BowShootingState Shooting;
-    private BowBaseState _activeState;
+    private BowBaseState activeState;
     public BowBaseState ActiveState
     {
-        get => _activeState;
-        set => _activeState = value;
+        get => activeState;
+        set => activeState = value;
     }
 
-    private Animator _bowAnimator;
+    private Animator bowAnimator;
 
     public Animator BowAnimator
     {
-        get => _bowAnimator;
+        get => bowAnimator;
     }
 
     public void ShootArrow(float currentArrowForce)
@@ -45,16 +45,16 @@ public class BowController : MonoBehaviour
     void Awake()
     {
         Idle = new BowIdleState();
-        Shooting = new BowShootingState(_maximumArrowForce, _maxLerpTime);
+        Shooting = new BowShootingState(maximumArrowForce, maxLerpTime);
 
-        _activeState = Idle;
-        _bowAnimator = GetComponent<Animator>();
+        activeState = Idle;
+        bowAnimator = GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        _activeState.HandleInput(this);
+        activeState.HandleInput(this);
     }
 }

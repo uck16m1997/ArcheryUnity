@@ -6,15 +6,15 @@ using UnityEngine;
 public class TargetSpawner : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 _spawnArea = new Vector3(3, 3, 3);
+    private Vector3 spawnArea = new Vector3(3, 3, 3);
 
     [SerializeField]
-    private int _targetsToSpawn = 3;
+    private int targetsToSpawn = 3;
 
     public static int TotalTargets;
 
     [SerializeField]
-    private GameObject _targetPrefab;
+    private GameObject targetPrefab;
 
 
 
@@ -37,15 +37,15 @@ public class TargetSpawner : MonoBehaviour
 
         if (TotalTargets == 0 && GameManager.GameStarted)
         {
-            float xMin = transform.position.x - _spawnArea.x / 2;
-            float yMin = transform.position.y - _spawnArea.y / 2;
-            float zMin = transform.position.z - _spawnArea.z / 2;
+            float xMin = transform.position.x - spawnArea.x / 2;
+            float yMin = transform.position.y - spawnArea.y / 2;
+            float zMin = transform.position.z - spawnArea.z / 2;
 
-            float xMax = transform.position.x + _spawnArea.x / 2;
-            float yMax = transform.position.y + _spawnArea.y / 2;
-            float zMax = transform.position.z + _spawnArea.z / 2;
+            float xMax = transform.position.x + spawnArea.x / 2;
+            float yMax = transform.position.y + spawnArea.y / 2;
+            float zMax = transform.position.z + spawnArea.z / 2;
 
-            for (int i = 0; i < _targetsToSpawn; i++)
+            for (int i = 0; i < targetsToSpawn; i++)
             {
                 float xRandom = UnityEngine.Random.Range(xMin, xMax);
                 float yRandom = UnityEngine.Random.Range(yMin, yMax);
@@ -71,6 +71,6 @@ public class TargetSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, _spawnArea);
+        Gizmos.DrawWireCube(transform.position, spawnArea);
     }
 }
