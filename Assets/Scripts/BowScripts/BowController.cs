@@ -6,8 +6,7 @@ public class BowController : MonoBehaviour
 {
     [SerializeField]
     private Transform _arrowTransform;
-    [SerializeField]
-    private GameObject _arrowPrefab;
+
     [SerializeField]
     private float _maximumArrowForce = 200f;
     [SerializeField]
@@ -35,9 +34,9 @@ public class BowController : MonoBehaviour
 
     public void ShootArrow(float currentArrowForce)
     {
-        Debug.Log(currentArrowForce);
-        GameObject arrow = Instantiate(_arrowPrefab, ArrowTransform.position, ArrowTransform.rotation) as GameObject;
+        GameObject arrow = ArrowFactory.Instance.GetProduct(ArrowTransform.position, ArrowTransform.rotation);
         arrow.GetComponent<Rigidbody>().AddForce(ArrowTransform.forward * currentArrowForce, ForceMode.Impulse);
+
     }
 
 

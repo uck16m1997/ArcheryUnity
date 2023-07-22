@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
         _gameStateTextAnim = gameStateUI.GetComponent<Animator>();
         _gameStateTextAnim.SetBool("ShowText", true);
 
-
         _timer = _gameLengthInSeconds;
 
         UpdateScoreBoard();

@@ -40,7 +40,7 @@
      <Compile Include="Assets\Scripts\HideCursor.cs" />
      <Compile Include="Assets\Scripts\AudioManagers\TargetAudioManager.cs" />
      <Compile Include="Assets\Scripts\BowScripts\BowShootingState.cs" />
-     <Compile Include="Assets\Scripts\CloneDestruction.cs" />
+     <Compile Include="Assets\Scripts\Garbage\CloneDestruction.cs" />
      <Compile Include="Assets\Scripts\BowScripts\BowAimBehaviour.cs" />
      <Compile Include="Assets\Scripts\BowScripts\BowBaseState.cs" />
      <Compile Include="Assets\Scripts\AudioManagers\BowAudioManager.cs" />
@@ -50,6 +50,12 @@
      <Compile Include="Assets\Scripts\BowScripts\BowController.cs" />
      <Compile Include="Assets\Scripts\TargetSpawner.cs" />
      <Compile Include="Assets\Scripts\AudioManagers\GameAudioManager.cs" />
+     <Compile Include="Assets\Scripts\Factories\BaseFactory.cs" />
+     <Compile Include="Assets\Scripts\Factories\ArrowFactory.cs" />
+     <Compile Include="Assets\Scripts\Products\IProduct.cs" />
+     <Compile Include="Assets\Scripts\Products\ArrowProduct.cs" />
+     <Compile Include="Assets\Scripts\Products\TargetProduct.cs" />
+     <Compile Include="Assets\Scripts\Factories\TargetFactory.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Users\uck16\Documents\GameDev\2021.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

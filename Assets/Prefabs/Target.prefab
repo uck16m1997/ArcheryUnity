@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 991589352722963342}
   - component: {fileID: 9222193213424014884}
   - component: {fileID: -3934308958365559497}
+  - component: {fileID: 8927966518793736958}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -33,6 +34,7 @@ Transform:
   m_LocalRotation: {x: -0.000000036112176, y: 0.68995756, z: 0.0000000053083387, w: 0.7238499}
   m_LocalPosition: {x: -44.169, y: 1.69, z: -26.442}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8389196074148469508}
   m_Father: {fileID: 0}
@@ -57,6 +59,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -225,9 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa62db4719ee38e4db996dc282c6e980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 1
-  timePeriod: 1
-  probOfMovement: 0.5
+  _amplitude: 1
+  _timePeriod: 1
+  _probOfMovement: 0.5
 --- !u!114 &-3934308958365559497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +243,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d975452113dea43a086e72cedf8458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8927966518793736958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628356709344694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3011c72cf0dc4e440b8e90850661cf10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _productName: Target
 --- !u!1001 &8389196074148839182
 PrefabInstance:
   m_ObjectHideFlags: 0

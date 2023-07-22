@@ -51,7 +51,7 @@ public class TargetSpawner : MonoBehaviour
                 float yRandom = UnityEngine.Random.Range(yMin, yMax);
                 float zRandom = UnityEngine.Random.Range(zMin, zMax);
 
-                Instantiate(_targetPrefab, new Vector3(xRandom, yRandom, zRandom), _targetPrefab.transform.rotation);
+                TargetFactory.Instance.GetProduct(new Vector3(xRandom, yRandom, zRandom), TargetFactory.Instance.TargetPrefab.transform.rotation);
                 TotalTargets++;
             }
         }
