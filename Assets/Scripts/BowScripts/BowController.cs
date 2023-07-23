@@ -5,8 +5,9 @@ using UnityEngine;
 public class BowController : MonoBehaviour
 {
     [SerializeField]
+    private DrawTrajectory trajectoryDrawer;
+    [SerializeField]
     private Transform arrowTransform;
-
     [SerializeField]
     private float maximumArrowForce = 200f;
     [SerializeField]
@@ -15,7 +16,10 @@ public class BowController : MonoBehaviour
     {
         get => arrowTransform;
     }
-
+    public DrawTrajectory TrajectoryDrawer
+    {
+        get => trajectoryDrawer;
+    }
     public static BowIdleState Idle;
     public static BowShootingState Shooting;
     private BowBaseState activeState;

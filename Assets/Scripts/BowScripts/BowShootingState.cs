@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class BowShootingState : BowBaseState
 {
-    private float _currentLerpTime;
-    private float _maxLerpTime = 1f;
-    private float _currentArrowForce;
-    private float _maximumArrowForce = 200f;
+
+    private float currentLerpTime;
+    private float maximumLerpTime = 1f;
+    private float currentArrowForce;
+    private float maximumArrowForce = 200f;
+    private Rigidbody arrowRigidbody;
     public event System.Action BowReleased;
     public event System.Action BowDrawing;
 
-    public BowShootingState(float maximumArrowForce, float maxLerpTime)
+    public BowShootingState(float maxArrFoce, float maxLerpTime)
     {
-        _maximumArrowForce = maximumArrowForce;
-        _maxLerpTime = maxLerpTime;
+        maximumArrowForce = maxArrFoce;
+        maximumLerpTime = maxLerpTime;
     }
+
+
 
     public override void HandleInput(BowController bowController)
     {
+
         if (Input.GetMouseButton(0))
         {
             PowerUpBow(bowController);
@@ -34,18 +39,21 @@ public class BowShootingState : BowBaseState
 
     private void PowerUpBow(BowController bowController)
     {
-        if (bowController.BowAnimator.GetBool("drawing"))
+
+        currentLerpTime += Time.deltaTime;
+
+        if (currentLerpTime > maximumLerpTime)
         {
-            _currentLerpTime += Time.deltaTime;
-
-            if (_currentLerpTime > _maxLerpTime)
-            {
-                _currentLerpTime = _maxLerpTime;
-            }
-
-            float perc = _currentLerpTime / _maxLerpTime;
-            _currentArrowForce = Mathf.Lerp(0, _maximumArrowForce, perc);
+            currentLerpTime = maximumLerpTime;
         }
+        float perc = currentLerpTime / maximumLerpTime;
+        currentArrowForce = Mathf.Lerp(0, maximumArrowForce, perc);
+
+        bowController.TrajectoryDrawer.UpdateTrajectory(
+            bowController.ArrowTransform.forward * currentArrowForce,
+            ArrowFactory.Instance.ArrowPrefab.GetComponent<Rigidbody>(),
+            bowController.ArrowTransform.position
+        );
     }
 
 
@@ -54,10 +62,12 @@ public class BowShootingState : BowBaseState
         BowReleased?.Invoke();
         bowController.BowAnimator.SetBool("drawing", false);
 
-        bowController.ShootArrow(_currentArrowForce);
+        bowController.ShootArrow(currentArrowForce);
 
-        _currentLerpTime = 0;
-        _currentArrowForce = 0;
+        currentLerpTime = 0;
+        currentArrowForce = 0;
+
+        bowController.TrajectoryDrawer.HideLine();
     }
 
     public override void OnEnter(BowController bowController)

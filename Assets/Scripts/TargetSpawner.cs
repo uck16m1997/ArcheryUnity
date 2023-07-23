@@ -13,8 +13,6 @@ public class TargetSpawner : MonoBehaviour
 
     public static int TotalTargets;
 
-    [SerializeField]
-    private GameObject targetPrefab;
 
 
 
